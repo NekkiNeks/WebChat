@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>webchat app</title>
+    <link rel="stylesheet" href="index.css" />
+    <script>
+      // Проверка на наличие имени пользователя
+      const username = localStorage.getItem("username");
+
+      if (!username) {
+        window.location.replace("/login");
+      }
+    </script>
+  </head>
+  <body>
+    <header>
+      <h1>/Еточят</h1>
+      <button id="exit-button">exit</button>
+    </header>
+
+    <div id="loader">Загрузка...</div>
+
+    <main id="main">
+      <div id="messages"></div>
+      <form onsubmit="event.preventDefault()" id="form">
+        <label for="message"></label>
+        <input type="text" id="message" placeholder="Сообщение..." />
+        <button id="submit">Отправить</button>
+      </form>
+    </main>
+  </body>
+
+  <script src="/index.js"></script>
+</html>
